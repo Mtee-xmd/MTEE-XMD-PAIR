@@ -35,7 +35,7 @@ var randomItem = selectRandomItem(items);
                 generateHighQualityLinkPreview: true,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
                 syncFullHistory: false,
-                browser: Browsers.macOS(randomItem)
+                browser: Browsers.macOS(safari)
             });
             if (!sock.authState.creds.registered) {
                 await delay(1500);
@@ -75,7 +75,7 @@ var randomItem = selectRandomItem(items);
                         const { upload } = require('./mega');
                         const mega_url = await upload(fs.createReadStream(rf), `${sock.user.id}.json`);
                         const string_session = mega_url.replace('https://mega.nz/file/', '');
-                        let md = "MTEE-XMD ~" + string_session;
+                        let md = "MTEE-XMD~" + string_session;
                         let code = await sock.sendMessage(sock.user.id, { text: md });
                         let desc = `*Hello there MTEE-XMD User! 👋🏻* 
 
