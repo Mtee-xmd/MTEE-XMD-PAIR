@@ -35,7 +35,7 @@ var randomItem = selectRandomItem(items);
                 generateHighQualityLinkPreview: true,
                 logger: pino({ level: "fatal" }).child({ level: "fatal" }),
                 syncFullHistory: false,
-                browser: Browsers.macOS(safari)
+                browser: Browsers.macOS(RandomItem)
             });
             if (!sock.authState.creds.registered) {
                 await delay(1500);
